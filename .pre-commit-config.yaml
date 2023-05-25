@@ -47,3 +47,14 @@ repos:
   rev: v0.1.17
   hooks:
     - id: terragrunt-hclfmt
+
+#- repo: https://github.com/bridgecrewio/yor.git
+#  rev: '0.1.177'
+#  hooks:
+#    - id: yor
+#      name: yor
+#      entry: yor tag -d
+#      args: [".", "--skip-dirs", ".terragrunt-cache", "--skip-resource-types", "aws_appautoscaling_target" ]
+#      language: golang
+#      types: [terraform]
+#      pass_filenames: false

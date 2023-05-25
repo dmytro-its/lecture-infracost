@@ -5,13 +5,13 @@ on:
     branches:
       - main
     paths:
-      - 'dev/**'
+      - 'terragrunt/dev/**'
   pull_request:
     branches:
       - main
     paths:
-      - 'prod/**'
-      - 'dev/**'
+      - 'terragrunt/prod/**'
+      - 'terragrunt/dev/**'
 
 jobs:
   terragrunt:
@@ -22,7 +22,7 @@ jobs:
         working-directory: ${{ env.WORKING_DIRECTORY }}
 
     env:
-      WORKING_DIRECTORY: dev
+      WORKING_DIRECTORY: terragrunt/dev
 
     steps:
       - name: Checkout
