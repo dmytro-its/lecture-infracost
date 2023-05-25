@@ -45,9 +45,9 @@ inputs = {
   vpc_id                 = dependency.vpc.outputs.vpc_id
   subnet_id              = one(dependency.vpc.outputs.private_subnets)
   ec2_env                = local.env
-  instance_type          = "m6i.large"
+  instance_type          = "t4g.micro"
   vpc_security_group_ids = ["${dependency.security_group.outputs.security_group_id}"]
-  iam_instance_profile   = "DB-Backups-prod.jbilling.com"
+  #iam_instance_profile   = "DB-Backups-prod.jbilling.com"
 
   ami = local.region_vars.locals.ubuntu_ami
 
