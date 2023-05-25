@@ -11,9 +11,9 @@ dependency "vpc" {
   mock_outputs_allowed_terraform_commands = ["init", "validate", "plan", "terragrunt-info", "show"] # Configure mock outputs for the "init", "validate", "plan", etc. commands that are returned when there are no outputs available (e.g the module hasn't been applied yet.)
   mock_outputs = {
     vpc_id                      = "vpc-fake-id"
-    private_subnets             = ["10.0.0.1/16"]
+    private_subnets             = ["10.1.0.0/16"]
     public_subnets              = ["32.0.0.0/16"]
-    private_subnets_cidr_blocks = "10.0.0.1/16"
+    private_subnets_cidr_blocks = ["10.1.0.0/16"]
   }
 }
 

@@ -1,8 +1,8 @@
 data "aws_region" "current" {}
 
-data "aws_route53_zone" "main" {
-  zone_id = "ZEHQM7JHS0Y08"
-}
+#data "aws_route53_zone" "main" {
+#  zone_id = "ZEHQM7JHS0Y08"
+#}
 
 # ----------------------------------------------------------------------------------------------------------------------
 # Local Variables

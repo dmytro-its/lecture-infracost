@@ -37,7 +37,7 @@ variable "security_groups" {
 variable "dns-name" {
   description = "Main domain name"
   type        = string
-  default     = "jbilling.com"
+  default     = "its.io"
 }
 
 variable "role" {
