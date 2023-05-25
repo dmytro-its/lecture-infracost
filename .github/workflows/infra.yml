@@ -66,11 +66,19 @@ jobs:
           #   hide-and-new - Minimize previous comments and create a new one.
           #   new - Create a new cost estimate comment on every push.
           # See https://www.infracost.io/docs/features/cli_commands/#comment-on-pull-requests for other options.
-          infracost comment github --path /tmp/infracost.json \
-                                   --repo $GITHUB_REPOSITORY \
-                                   --github-token ${{ secrets.GITHUB_TOKEN }} \
-                                   --pull-request ${{ github.event.pull_request.number }} \
-                                   --behavior new
+          #infracost comment github --path /tmp/infracost.json \
+          #                         --repo $GITHUB_REPOSITORY \
+          #                         --github-token ${{ secrets.GITHUB_TOKEN }} \
+          #                         --pull-request ${{ github.event.pull_request.number }} \
+          #                         --behavior new
+
+          infracost comment github --path=/tmp/infracost.json \
+                                     --repo=$GITHUB_REPOSITORY \
+                                     --github-token=${{github.token}} \
+                                     --pull-request=${{github.event.pull_request.number}} \
+                                     --behavior=new
+
+
 
       - name: Terragrunt Format
         id: fmt
