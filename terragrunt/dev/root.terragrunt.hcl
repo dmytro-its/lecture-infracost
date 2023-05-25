@@ -50,6 +50,7 @@ remote_state {
 
 # ---------------------------------------------------------------------------------------------------------------------
 # GLOBAL PARAMETERS
+#
 # These variables apply to all configurations in this subfolder. These are automatically merged into the child
 # `terragrunt.hcl` config via the include block.
 # ---------------------------------------------------------------------------------------------------------------------
