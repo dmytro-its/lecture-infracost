@@ -34,7 +34,7 @@ jobs:
         with:
           directory: ${{ env.WORKING_DIRECTORY }}
           skip_tags: git_modifiers,git_commit,git_repository
-          skip_directory: .terragrunt-cache,modules
+          skip_dirs: .terragrunt-cache,modules
           skip-resource-types: aws_appautoscaling_target
 
 
