@@ -51,7 +51,7 @@ inputs = {
 
   ami = local.region_vars.locals.ubuntu_ami
 
-  key_name = "jb-itsyndicate_setup_only"
+  key_name = "dmytro"
 
   associate_public_ip_address = false
 

@@ -50,7 +50,7 @@ inputs = {
 
   ami = "ami-0ea1c7db66fee3098"
 
-  key_name = "jb-itsyndicate_setup_only"
+  key_name = "dmytro"
 
   associate_public_ip_address = true
 
