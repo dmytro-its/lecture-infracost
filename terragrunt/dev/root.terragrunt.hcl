@@ -40,7 +40,7 @@ EOF
 
 generate "versions" {
   path      = "versions.tf"
-  if_exists = "overwrite_terragrunt"
+  if_exists = "overwrite"
   contents  = <<EOF
     terraform {
       required_providers {
