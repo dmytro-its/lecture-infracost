@@ -29,9 +29,9 @@ resource "aws_lb_target_group" "this" {
     tomap({ "Name" = "${local.client}-${local.env}-tg"
     })
     , {
-      git_commit           = "cd9cf36061b2576cf99007215aa13f575888e2de"
+      git_commit           = "052ad3ac2e9ee12416613febf92b9393b74fb6b0"
       git_file             = "modules/alb/alb.tf"
-      git_last_modified_at = "2023-05-25 09:08:21"
+      git_last_modified_at = "2023-05-26 08:12:26"
       git_last_modified_by = "dmytro@itsyndicate.org"
       git_modifiers        = "dmytro"
       git_org              = "dmytro-its"

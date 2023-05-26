@@ -38,9 +38,9 @@ module "ec2_instance" {
     #tomap({ "Name" = "${var.name}-${each.key}.${data.aws_route53_zone.main.name}" })
     tomap({ "Name" = "${var.name}-${each.key}" })
     , {
-      git_commit           = "bf91c6371aafdf240bf11d7f196af4f5fea0fa48"
+      git_commit           = "052ad3ac2e9ee12416613febf92b9393b74fb6b0"
       git_file             = "modules/ec2-internal/main.tf"
-      git_last_modified_at = "2023-05-25 12:22:49"
+      git_last_modified_at = "2023-05-26 08:12:26"
       git_last_modified_by = "dmytro@itsyndicate.org"
       git_modifiers        = "dmytro"
       git_org              = "dmytro-its"
