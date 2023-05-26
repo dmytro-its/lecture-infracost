@@ -45,7 +45,7 @@ inputs = {
   subnet_id = element(tolist(coalesce(dependency.vpc.outputs.public_subnets)), 0)
   #subnet_id = "subnet-0c2acbf82c384f58b"
   ec2_env                = local.env
-  instance_type          = "t3a.small"
+  instance_type          = "t3a.large"
   vpc_security_group_ids = ["${dependency.security_group.outputs.security_group_id}"]
 
   ami = "ami-0ea1c7db66fee3098"
