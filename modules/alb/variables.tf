@@ -110,3 +110,9 @@ variable "enable_http_listener" {
   type = bool
   default = false
 }
+
+variable "enable_https_listener" {
+  description = "Enable or not ALB HTTP listener"
+  type = bool
+  default = false
+}
