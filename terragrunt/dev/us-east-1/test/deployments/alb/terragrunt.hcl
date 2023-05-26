@@ -47,15 +47,17 @@ locals {
 
 inputs = {
 
-  name         = "${local.client}-${local.env}-${local.role}"
-  description  = "ALB for ${local.client}-${local.env}"
-  namespace    = local.project
-  env          = local.env
-  client       = local.client_vars.locals.client
-  short_client = local.client_vars.locals.short_client
-  role         = local.role
-  dns_prefix   = "test"
-  dns-name     = "its-io"
+  name                  = "${local.client}-${local.env}-${local.role}"
+  description           = "ALB for ${local.client}-${local.env}"
+  namespace             = local.project
+  env                   = local.env
+  client                = local.client_vars.locals.client
+  short_client          = local.client_vars.locals.short_client
+  role                  = local.role
+  dns_prefix            = "test"
+  dns-name              = "its.io"
+  enable_http_listener  = true
+  enable_https_listener = false
 
   load_balancer_type = "application"
 
