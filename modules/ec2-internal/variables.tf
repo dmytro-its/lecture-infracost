@@ -50,7 +50,7 @@ variable "role" {
 variable "iam_instance_profile" {
   description = "IAM instance profile name"
   type = string
-  default = "jbCISTmpRole"
+  default = ""
 }
 /*
 variable "route53_name" {
