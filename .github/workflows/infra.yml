@@ -35,13 +35,14 @@ jobs:
           directory: ${{ env.WORKING_DIRECTORY }}
           skip_tags: git_modifiers,git_commit,git_repository
           skip_dirs: .terragrunt-cache,modules
-          skip-resource-types: aws_appautoscaling_target
+          skip_resource_types: aws_appautoscaling_target
 
 
 
   terragrunt:
     name: Terragrunt
     runs-on: ubuntu-latest
+    needs: yor
     defaults:
       run:
         working-directory: ${{ env.WORKING_DIRECTORY }}
