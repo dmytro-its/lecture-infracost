@@ -14,6 +14,31 @@ on:
       - 'terragrunt/dev/**'
 
 jobs:
+  yor:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+
+    env:
+      WORKING_DIRECTORY: terragrunt/dev
+
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout repo
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+      - name: Run yor action and commit
+        uses: bridgecrewio/yor-action@main
+        with:
+          directory: ${{ env.WORKING_DIRECTORY }}
+          skip_tags: git_modifiers,git_commit,git_repository
+          skip_directory: .terragrunt-cache,modules
+          skip-resource-types: aws_appautoscaling_target
+
+
+
   terragrunt:
     name: Terragrunt
     runs-on: ubuntu-latest
