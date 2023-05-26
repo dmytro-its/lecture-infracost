@@ -55,6 +55,7 @@ inputs = {
   short_client = local.client_vars.locals.short_client
   role         = local.role
   dns_prefix   = "test"
+  dns-name     = "its-io"
 
   load_balancer_type = "application"
 
@@ -63,5 +64,5 @@ inputs = {
   security_groups = ["${dependency.security_group.outputs.security_group_id}"]
   #security_groups   = concat(["${dependency.external_security_group.outputs.security_group_id}"], ["${dependency.internal_security_group.outputs.security_group_id}"], ["${dependency.whitelisted_ips_security_group.outputs.security_group_id}"])
   instance_group_id = ["${dependency.security_group.outputs.security_group_id}"]
-  #  certificate_arn   = "arn:aws:acm:us-east-1:602406608118:certificate/92f39db2-adf4-42eb-8ff7-de4489f1b3ff"
+  certificate_arn   = "arn:aws:acm:us-east-1:448058496623:certificate/03cca9c6-df8a-41ee-af4a-0dfe89705c55"
 }

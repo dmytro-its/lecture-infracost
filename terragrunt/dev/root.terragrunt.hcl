@@ -24,17 +24,24 @@ generate "provider" {
   path      = "provider.tf"
   if_exists = "overwrite_terragrunt"
   contents  = <<EOF
-  terraform {
-    required_providers {
-      aws = {
-        source = "hashicorp/aws"
-        version = ">= 4.58.0"
-      }
-    }
-  }
   provider "aws" {
     region = "${local.aws_region}"
   }
+EOF
+}
+
+generate "versions" {
+  path      = "versions.tf"
+  if_exists = "overwrite"
+  contents  = <<EOF
+    terraform {
+      required_providers {
+        aws = {
+      source = "hashicorp/aws"
+      version = "= 4.67.0"
+    }
+      }
+    }
 EOF
 }
 
@@ -58,6 +65,7 @@ remote_state {
 
 # ---------------------------------------------------------------------------------------------------------------------
 # GLOBAL PARAMETERS
+#
 # These variables apply to all configurations in this subfolder. These are automatically merged into the child
 # `terragrunt.hcl` config via the include block.
 # ---------------------------------------------------------------------------------------------------------------------

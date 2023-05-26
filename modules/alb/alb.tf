@@ -108,15 +108,15 @@ resource "aws_lb_listener" "front_https" {
   }
 }
 
-data "aws_route53_zone" "main" {
+#data "aws_route53_zone" "main" {
 #  zone_id = "ZEHQM7JHS0Y08"
-  name = var.dns-name
-}
+#  name = var.dns-name
+#}
 
-resource "aws_route53_record" "this" {
+/*resource "aws_route53_record" "this" {
   zone_id  = data.aws_route53_zone.main.zone_id
 #  name     = join(".", ["${local.client}-${local.env}-22", data.aws_route53_zone.main.name])
-  name     = join(".", ["${local.dns_prefix}", data.aws_route53_zone.main.name])
+  name     = join(".", ["${local.dns_prefix}", var.dns-name])
   type     = "A"
   alias {
     name                   = aws_lb.this.dns_name
@@ -124,7 +124,7 @@ resource "aws_route53_record" "this" {
     evaluate_target_health = true
   }
 }
-
+*/
 ############################################
 #### import fullcreative instances
 

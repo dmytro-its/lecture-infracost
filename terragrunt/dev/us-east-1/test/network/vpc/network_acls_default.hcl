@@ -27,15 +27,6 @@ inputs = {
       protocol    = "udp"
       cidr_block  = "0.0.0.0/0"
     },
-    # NTP port 123
-    {
-      rule_number = 810
-      rule_action = "allow"
-      from_port   = 123
-      to_port     = 123
-      protocol    = "udp"
-      cidr_block  = "0.0.0.0/0"
-    },
     # Allow ICMP ping
     {
       rule_number = 820

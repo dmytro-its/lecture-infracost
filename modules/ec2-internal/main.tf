@@ -1,8 +1,8 @@
 data "aws_region" "current" {}
 
-data "aws_route53_zone" "main" {
-  zone_id = "ZEHQM7JHS0Y08"
-}
+#data "aws_route53_zone" "main" {
+#  zone_id = "ZEHQM7JHS0Y08"
+#}
 
 # ----------------------------------------------------------------------------------------------------------------------
 # Local Variables
@@ -19,7 +19,8 @@ module "ec2_instance" {
 
   for_each = toset(var.number)
 
-  name                   = "${var.name}-${each.key}.${data.aws_route53_zone.main.name}"
+  #name                   = "${var.name}-${each.key}.${data.aws_route53_zone.main.name}"
+  name                   = "${var.name}-${each.key}.its.io"
 
   ami                    = var.ami
   instance_type          = var.instance_type
