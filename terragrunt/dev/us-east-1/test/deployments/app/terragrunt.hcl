@@ -45,7 +45,7 @@ inputs = {
   vpc_id                 = dependency.vpc.outputs.vpc_id
   subnet_id              = one(dependency.vpc.outputs.private_subnets)
   ec2_env                = local.env
-  instance_type          = "t4g.micro"
+  instance_type          = "t3a.micro"
   vpc_security_group_ids = ["${dependency.security_group.outputs.security_group_id}"]
   #iam_instance_profile   = "DB-Backups-prod.jbilling.com"
 

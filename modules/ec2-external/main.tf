@@ -17,7 +17,7 @@ module "ec2_instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "~> 4.0"
 
-  name                   = var.name
+  name = var.name
 
   ami                    = var.ami
   instance_type          = var.instance_type
@@ -32,5 +32,15 @@ module "ec2_instance" {
     var.tags,
     #tomap({ "Name" = "${local.client}-${local.env}-${local.role}-${each.key}.${local.domain}" })
     tomap({ "Name" = "${var.name}" })
-    )
+    , {
+      git_commit           = "052ad3ac2e9ee12416613febf92b9393b74fb6b0"
+      git_file             = "modules/ec2-external/main.tf"
+      git_last_modified_at = "2023-05-26 08:12:26"
+      git_last_modified_by = "dmytro@itsyndicate.org"
+      git_modifiers        = "dmytro"
+      git_org              = "dmytro-its"
+      git_repo             = "lecture-infracost"
+      yor_name             = "ec2_instance"
+      yor_trace            = "4e333bf3-548f-48b0-b6f4-02fefe816848"
+  })
 }
