@@ -1,8 +1,8 @@
 locals {
-  role   = var.role
-  client = var.short_client
+  role       = var.role
+  client     = var.short_client
   dns_prefix = var.dns_prefix
-  env = var.env
+  env        = var.env
 }
 
 resource "aws_lb_target_group" "this" {
@@ -22,20 +22,30 @@ resource "aws_lb_target_group" "this" {
   }
   stickiness {
     enabled = true
-    type = "lb_cookie"
+    type    = "lb_cookie"
   }
   tags = merge(
     var.tags,
     tomap({ "Name" = "${local.client}-${local.env}-tg"
     })
-  )
+    , {
+      git_commit           = "cd9cf36061b2576cf99007215aa13f575888e2de"
+      git_file             = "modules/alb/alb.tf"
+      git_last_modified_at = "2023-05-25 09:08:21"
+      git_last_modified_by = "dmytro@itsyndicate.org"
+      git_modifiers        = "dmytro"
+      git_org              = "dmytro-its"
+      git_repo             = "lecture-infracost"
+      yor_name             = "this"
+      yor_trace            = "3cb9b8e0-ab28-41c9-961f-6b22543bc188"
+  })
 }
 
 #### import iinstances
 
 data "aws_instances" "all" {
   instance_tags = {
-    Role =  "app"
+    Role = "app"
   }
   filter {
     name   = "instance.group-id"
@@ -71,10 +81,21 @@ resource "aws_lb" "this" {
   #subnets = [ data.aws_subnets.all.ids ]
   subnets = [for id in data.aws_subnets.all.ids : id]
   ###subnets = [for id in data.aws_subnets.fc.ids : id]
+  tags = {
+    git_commit           = "cd9cf36061b2576cf99007215aa13f575888e2de"
+    git_file             = "modules/alb/alb.tf"
+    git_last_modified_at = "2023-05-25 09:08:21"
+    git_last_modified_by = "dmytro@itsyndicate.org"
+    git_modifiers        = "dmytro"
+    git_org              = "dmytro-its"
+    git_repo             = "lecture-infracost"
+    yor_name             = "this"
+    yor_trace            = "8d6f19dd-c0bf-48d6-a9fe-fb7438098d4b"
+  }
 }
 
 resource "aws_lb_listener" "front_http" {
-  count = var.enable_http_listener ? 1 : 0
+  count             = var.enable_http_listener ? 1 : 0
   load_balancer_arn = aws_lb.this.arn
   port              = "80"
   protocol          = "HTTP"
