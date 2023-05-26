@@ -39,7 +39,7 @@ EOF
 }
 
 generate "versions" {
-  path      = "versions_override.tf"
+  path      = "versions.tf"
   if_exists = "overwrite_terragrunt"
   contents  = <<EOF
     terraform {
