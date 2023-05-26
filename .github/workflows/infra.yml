@@ -32,7 +32,7 @@ jobs:
       - name: Run yor action and commit
         uses: bridgecrewio/yor-action@main
         with:
-          directory: ${{ env.WORKING_DIRECTORY }}
+          directory: "."
           skip_tags: git_modifiers,git_commit,git_repository
           skip_dirs: .terragrunt-cache,modules
           skip_resource_types: aws_appautoscaling_target
